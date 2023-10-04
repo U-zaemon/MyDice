@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>さいころ</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            color: cornflowerblue;
+        }
+        button {
+            margin: 20px;
+            background-color: rosybrown;
+        }
+        a {
+            color: white;
+        }
+
+        .start {
+            width: 100%;
+            height: 100vh;
+            background-color: powderblue;
+            position: fixed;
+            top: 0;
+            animation: loading 2s forwards;
+        }
+        @keyframes loading {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                z-index: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="start"></div>
+
+    <h1>さいころ</h1>
+    <img src="images/dice1.png" id="ResultImage">
+    <button>
+        <a href="index.html">もう一度さいころを振る</a>
+    </button>
+
+    <script>
+        let ResultImage = ["images/dice1.png", "images/dice2.png", "images/dice3.png", "images/dice4.png", "images/dice5.png", "images/dice6.png", ]
+        let ResultCount = ResultImage.length
+        let number = Math.floor(Math.random() * ResultCount);
+        let image = document.getElementById("ResultImage");
+        image.src = ResultImage[number];
+    </script>
+</body>
+</html>
